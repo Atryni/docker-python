@@ -1,6 +1,5 @@
 #-------------------------------- Project --------------------------------------------------#
 SHELL := /bin/bash
-include configs/dev.conf
 export
 #-------------------------------- Project --------------------------------------------------#
 
@@ -16,8 +15,8 @@ start:
 
 #-------------------------------- Docker --------------------------------------------------#
 DC_COMMAND=docker-compose -f docker-compose.yml
-DC_PYTHON=${DC_COMMAND} run --rm --user `id -u`:`id -g` python
-DC_PYTHON_ROOT=${DC_COMMAND} run --rm python
+DC_PY=${DC_COMMAND} run --rm --user `id -u`:`id -g` py
+DC_PY_ROOT=${DC_COMMAND} run --rm py
 #-------------------------------- Docker --------------------------------------------------#
 build:
 	${DC_COMMAND} build
@@ -31,11 +30,11 @@ remove-all-data:
 	${DC_COMMAND} down --volumes
 
 #-------------------------------- PYTHON --------------------------------------------------#
-python-bash:
-	$(DC_PYTHON) sh
+bash:
+	$(DC_PY) bash
 
-python-bash-root:
-	$(DC_PYTHON_ROOT) sh
+bash-root:
+	$(DC_PY_ROOT) bash
 
 
 #--------------------------------- Git ----------------------------------------------------#
