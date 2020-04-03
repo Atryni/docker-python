@@ -1,0 +1,9 @@
+version: "3"
+services:
+  py:
+    build:
+      dockerfile: Dockerfile
+      args:
+        VERSION: $PY_VERSION
+    volumes:
+      - ./app:/app

@@ -1,0 +1,9 @@
+.idea
+.vscode
+
+.prod
+.env.local
+.env.*.local
+
+app/*
+!app/.gitkeep
